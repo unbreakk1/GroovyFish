@@ -1,4 +1,4 @@
-﻿class Fight
+class Fight
 {
     Monster monster1
     Monster monster2

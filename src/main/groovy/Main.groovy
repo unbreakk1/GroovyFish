@@ -1,4 +1,4 @@
-﻿static void main(String[] args)
+static void main(String[] args)
 {
   // Create two monsters
   Monster dragon = new Monster("Dragon", 100, 20, 5)
