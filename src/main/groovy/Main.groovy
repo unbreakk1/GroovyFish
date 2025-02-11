@@ -1,34 +1,45 @@
-static void main(String[] args)
-{
+static void main(String[] args) {
   Scanner scanner = new Scanner(System.in)
 
-  // Create Monster 1
+  // Enter details for Monster 1
   println("Enter details for Monster 1:")
   print("Name: ")
   String name1 = scanner.nextLine()
-  print("Health: ")
-  int health1 = scanner.nextInt()
-  print("Attack Power: ")
-  int attack1 = scanner.nextInt()
-  print("Defense: ")
-  int defense1 = scanner.nextInt()
-  scanner.nextLine() // Consume any leftover newline character
-  Monster monster1 = new Monster(name1, health1, attack1, defense1)
+  int health1 = getPositiveIntInput(scanner, "Health (positive integer): ")
+  int attackPower1 = getPositiveIntInput(scanner, "Attack Power (positive integer): ")
+  int defense1 = getPositiveIntInput(scanner, "Defense (positive integer): ")
+  Monster monster1 = new Monster(name1, health1, attackPower1, defense1)
 
-  // Create Monster 2
+  // Enter details for Monster 2
   println("\nEnter details for Monster 2:")
   print("Name: ")
   String name2 = scanner.nextLine()
-  print("Health: ")
-  int health2 = scanner.nextInt()
-  print("Attack Power: ")
-  int attack2 = scanner.nextInt()
-  print("Defense: ")
-  int defense2 = scanner.nextInt()
-  Monster monster2 = new Monster(name2, health2, attack2, defense2)
+  int health2 = getPositiveIntInput(scanner, "Health (positive integer): ")
+  int attackPower2 = getPositiveIntInput(scanner, "Attack Power (positive integer): ")
+  int defense2 = getPositiveIntInput(scanner, "Defense (positive integer): ")
+  Monster monster2 = new Monster(name2, health2, attackPower2, defense2)
 
-  // Start the Fight
+  // Start the fight
   Fight fight = new Fight(monster1, monster2)
   fight.start()
-
 }
+
+  static int getPositiveIntInput(Scanner scanner, String prompt)
+  {
+    while (true) {
+      try {
+        print(prompt)
+        int input = scanner.nextInt()
+        if (input > 0) {
+          return input
+        } else {
+          println("Input must be a positive integer. Please try again.")
+        }
+      } catch (InputMismatchException e) {
+        println("Invalid input. Please enter a positive integer.")
+        scanner.nextLine() // Clear the invalid input from the scanner buffer
+      }
+    }
+
+
+  }
