@@ -7,4 +7,6 @@ static void main(String[] args)
   // Start the fight
   Fight fight = new Fight(dragon, ogre)
   fight.start()
+
+  //i don't want anything to do with groovy! :)
 }
